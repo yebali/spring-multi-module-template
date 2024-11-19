@@ -1,0 +1,10 @@
+[versions]
+kotlin = "1.9.24"
+kotlinxCoroutines = "1.9.0"
+ktlint = "12.1.1"
+kotlinLogging = "3.0.4"
+springBoot = "3.3.4"
+springDependencyManagement = "1.1.6"
+springCloud = "2023.0.3"
+jib = "3.4.3"
+querydsl = "5.0.0"

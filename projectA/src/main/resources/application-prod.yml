@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+# actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "health"
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
