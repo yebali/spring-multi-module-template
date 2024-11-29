@@ -1,7 +1,7 @@
 [versions]
 kotlin = "1.9.24"
 kotlinxCoroutines = "1.9.0"
-ktlint = "12.1.1"
+ktlint = "12.1.2"
 kotlinLogging = "3.0.4"
 springBoot = "3.3.4"
 springDependencyManagement = "1.1.6"
