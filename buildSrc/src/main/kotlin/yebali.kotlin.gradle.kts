@@ -1,4 +1,3 @@
-import gradle.kotlin.dsl.accessors._f916be8616a61deeca485a4e11f794c0.allOpen
 import org.gradle.api.JavaVersion
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
