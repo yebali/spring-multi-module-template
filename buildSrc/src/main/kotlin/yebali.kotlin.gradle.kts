@@ -25,21 +25,25 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
 
     // Logging
-    implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
+    implementation("io.github.oshai:kotlin-logging-jvm:$kotlinLoggingVersion")
 }
 
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
-    version.set("0.49.1")
-    additionalEditorconfig.set( // not supported until ktlint 0.49
+    version.set("1.7.1")
+    additionalEditorconfig.set(
         mapOf(
-            "max_line_length" to "999",
+            "ktlint_standard_max-line-length" to "disabled",
+            "ktlint_standard_multiline-expression-wrapping" to "disabled",
+            "ktlint_standard_chain-method-continuation" to "disabled",
+            "ktlint_standard_class-signature" to "disabled",
+            "ktlint_standard_property-naming" to "disabled",
         ),
     )
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
+    compilerOptions {
+        freeCompilerArgs.set(listOf("-Xjsr305=strict"))
     }
 }
 
