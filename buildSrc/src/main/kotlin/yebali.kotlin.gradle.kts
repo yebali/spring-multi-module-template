@@ -36,7 +36,12 @@ configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
             "ktlint_standard_multiline-expression-wrapping" to "disabled",
             "ktlint_standard_chain-method-continuation" to "disabled",
             "ktlint_standard_class-signature" to "disabled",
+            "ktlint_standard_function-signature" to "disabled",
             "ktlint_standard_property-naming" to "disabled",
+            "ktlint_standard_if-else-wrapping" to "disabled",
+            "ktlint_standard_assignment" to "disabled",
+            "ktlint_standard_no-unused-imports" to "enabled",
+            "ktlint_standard_no-wildcard-imports" to "enabled",
         ),
     )
 }

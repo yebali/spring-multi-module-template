@@ -40,7 +40,7 @@ The build system uses a layered convention plugin approach in `buildSrc/src/main
 
 3. **yebali.kotlin.spring-web.jpa** (extends yebali.kotlin.spring-web)
    - Spring Data JPA
-   - QueryDSL 7.0 (OpenFeign fork: io.github.openfeign.querydsl) with KAPT annotation processing
+   - QueryDSL 7.1 (OpenFeign fork: io.github.openfeign.querydsl) with KAPT annotation processing
    - H2 test database
 
 4. **yebali.kotlin.spring-web.jpa.postgresql** (extends yebali.kotlin.spring-web.jpa)
@@ -67,6 +67,12 @@ The build system uses a layered convention plugin approach in `buildSrc/src/main
 # Run tests for specific module
 ./gradlew :projectA:test
 ./gradlew :ProjectB:test
+
+# Run a single test class
+./gradlew :projectA:test --tests "com.yebali.template.SomeTest"
+
+# Run a single test method
+./gradlew :projectA:test --tests "com.yebali.template.SomeTest.testMethodName"
 
 # Clean build
 ./gradlew clean build
@@ -109,11 +115,11 @@ The build system uses a layered convention plugin approach in `buildSrc/src/main
 ## Development Notes
 
 - **Spring Profiles**: Each module has profiles for `local`, `dev`, `prod`, and `test`
-- **Testing Framework**: Uses SpringMockK instead of Mockito. Extend `SpringBootTestSupport` for integration tests
+- **Testing Framework**: Uses SpringMockK 5.x instead of Mockito. Extend `SpringBootTestSupport` for integration tests
 - **Database**: PostgreSQL for production, H2 for tests
-- **Kotlin Version**: 2.2.21 with coroutines 1.10.2 support
-- **Spring Boot Version**: 3.5.7
-- **Spring Cloud Version**: 2025.0.0 (Northfields)
+- **Kotlin Version**: 2.3.0 with coroutines 1.10.2 support
+- **Spring Boot Version**: 4.0.1 (Spring Framework 7 기반)
+- **Spring Cloud Version**: 2025.1.0 (Oakwood)
 - **Java Version**: 21
 - **Logging**: kotlin-logging-jvm 7.0.13 (io.github.oshai) - package changed from `mu.*` to `io.github.oshai.kotlinlogging.*`
-- **QueryDSL**: 7.0 from OpenFeign fork (io.github.openfeign.querydsl) - original com.querydsl is no longer maintained
+- **QueryDSL**: 7.1 from OpenFeign fork (io.github.openfeign.querydsl) - original com.querydsl is no longer maintained
