@@ -13,6 +13,4 @@ dependencies {
     // querydsl
     implementation("io.github.openfeign.querydsl:querydsl-jpa:${querydslVersion}")
     kapt("io.github.openfeign.querydsl:querydsl-apt:${querydslVersion}")
-
-    testRuntimeOnly("com.h2database:h2")
 }
