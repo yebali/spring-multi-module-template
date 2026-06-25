@@ -29,7 +29,7 @@ dependencies {
 }
 
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
-    version.set("1.7.1")
+    version.set("1.8.0")
     additionalEditorconfig.set(
         mapOf(
             "ktlint_standard_max-line-length" to "disabled",

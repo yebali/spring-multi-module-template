@@ -26,7 +26,7 @@ The build system uses a layered convention plugin approach in `buildSrc/src/main
 1. **yebali.kotlin** (base layer)
    - Kotlin JVM, Spring, and JPA plugins
    - Java 21 compatibility
-   - ktlint 1.7.1 with disabled rules (max-line-length, multiline-expression-wrapping, etc.)
+   - ktlint 1.8.0 with disabled rules (max-line-length, multiline-expression-wrapping, etc.)
    - Kotlin coroutines and kotlin-logging-jvm (io.github.oshai) dependencies
    - JPA allOpen annotations
    - Kotlin 2.x compilerOptions DSL (freeCompilerArgs)
@@ -40,7 +40,7 @@ The build system uses a layered convention plugin approach in `buildSrc/src/main
 
 3. **yebali.kotlin.spring-web.jpa** (extends yebali.kotlin.spring-web)
    - Spring Data JPA
-   - QueryDSL 7.1 (OpenFeign fork: io.github.openfeign.querydsl) with KAPT annotation processing
+   - QueryDSL 7.4 (OpenFeign fork: io.github.openfeign.querydsl) with KAPT annotation processing
    - H2 test database
 
 4. **yebali.kotlin.spring-web.jpa.postgresql** (extends yebali.kotlin.spring-web.jpa)
@@ -115,11 +115,12 @@ The build system uses a layered convention plugin approach in `buildSrc/src/main
 ## Development Notes
 
 - **Spring Profiles**: Each module has profiles for `local`, `dev`, `prod`, and `test`
-- **Testing Framework**: Uses SpringMockK 5.x instead of Mockito. Extend `SpringBootTestSupport` for integration tests
-- **Database**: PostgreSQL for production, H2 for tests
-- **Kotlin Version**: 2.3.0 with coroutines 1.10.2 support
-- **Spring Boot Version**: 4.0.1 (Spring Framework 7 기반)
-- **Spring Cloud Version**: 2025.1.0 (Oakwood)
+- **Testing Framework**: Uses SpringMockK 5.x instead of Mockito. Extend `SpringBootTestSupport` for integration tests. Integration tests run against a real PostgreSQL via Testcontainers (singleton container + `@ServiceConnection`), so **`./gradlew test` requires a running Docker daemon**
+- **Database**: PostgreSQL for production and tests (tests use Testcontainers `postgres:18-alpine`)
+- **Kotlin Version**: 2.4.0 with coroutines 1.11.0 support
+- **Spring Boot Version**: 4.0.7 (Spring Framework 7 기반)
+- **Spring Cloud Version**: 2025.1.2 (Oakwood)
 - **Java Version**: 21
-- **Logging**: kotlin-logging-jvm 7.0.13 (io.github.oshai) - package changed from `mu.*` to `io.github.oshai.kotlinlogging.*`
-- **QueryDSL**: 7.1 from OpenFeign fork (io.github.openfeign.querydsl) - original com.querydsl is no longer maintained
+- **Gradle Version**: 9.6.0
+- **Logging**: kotlin-logging-jvm 8.0.4 (io.github.oshai) - package changed from `mu.*` to `io.github.oshai.kotlinlogging.*`
+- **QueryDSL**: 7.4 from OpenFeign fork (io.github.openfeign.querydsl) - original com.querydsl is no longer maintained
